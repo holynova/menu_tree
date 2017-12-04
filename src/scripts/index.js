@@ -4,7 +4,7 @@ import '../styles/normalize.scss';
 import '../styles/style.scss';
 import utils from './utils';
 import testTreeModel from './tree_model';
-
+import Menu from './menu';
 
 const { log } = utils;
 
@@ -45,8 +45,6 @@ function paint() {
 }
 
 function main() {
-  const tree = new TreeModel();
-
   log('ready');
   const treeData = {
     title: 'root',
@@ -93,9 +91,10 @@ function main() {
       },
     ],
   };
-  const root = tree.parse(treeData);
 
-
+  const m = new Menu(treeData, $('ul.root'));
+  m.findAndPaint('p211');
+  // m.render();
   // createMenu(tree, $('ul.root'));
   // testTreeModel();
 }
